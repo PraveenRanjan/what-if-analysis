@@ -4,12 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  strict: true,
+  
 
   state: {
     itemList: [
       {
-        index: 0,
+        id: 1,
         name: "ADBE",
         companyName: "Adobe Syatem Inc",
         amount: 14528.4,
@@ -18,9 +18,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":0,"y":0,"w":1,"h":1,"i":"1", static: false
       },
       {
-        index: 1,
+        id: 2,
         name: "ALL",
         companyName: "Allstate",
         amount: 20766,
@@ -29,9 +30,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":1,"y":0,"w":1,"h":1,"i":"2", static: false
       },
       {
-        index: 2,
+        id: 3,
         name: "BK",
         companyName: "Bank New York Mellon",
         amount: 8024,
@@ -40,9 +42,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":2,"y":0,"w":1,"h":1,"i":"3", static: false
       },
       {
-        index: 3,
+        id: 4,
         name: "BX",
         companyName: "Blackstone Group Inc",
         amount: 18420,
@@ -51,9 +54,11 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":3,"y":0,"w":1,"h":1,"i":"4", static: false
       },
+      
       {
-        index: 4,
+        id: 5,
         name: "CAT",
         companyName: "Caterpiller Inc",
         amount: 20955.6,
@@ -62,9 +67,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":4,"y":0,"w":1,"h":1,"i":"5", static: false
       },
       {
-        index: 5,
+        id: 6,
         name: "CASH",
         companyName: "Cash Account",
         amount: 17414.22,
@@ -73,10 +79,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":5,"y":0,"w":1,"h":1,"i":"6", static: true
       },
       {
-        index: 6,
-        
+        id: 7,
         name: "CSGP",
         companyName: "Costar Group Inc",
         amount: 17414,
@@ -85,10 +91,11 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":0,"y":1,"w":1,"h":1,"i":"7", static: false
 
       },
       {
-        index: 7,
+        id: 8,
         name: "DIS",
         companyName: "Allstate",
         amount: 20766,
@@ -97,9 +104,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":1,"y":1,"w":1,"h":1,"i":"8", static: false
       },
       {
-        index: 8,
+        id: 9,
         name: "EA",
         companyName: "Bank New York Mellon",
         amount: 8024,
@@ -108,9 +116,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":2,"y":1,"w":1,"h":1,"i":"9", static: false
       },
       {
-        index: 9,
+        id: 10,
         name: "ED",
         companyName: "Blackstone Group Inc",
         amount: 18420,
@@ -119,9 +128,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":3,"y":1,"w":1,"h":1,"i":"10", static: false
       },
       {
-        index: 10,
+        id: 11,
         name: "ETN",
         companyName: "Eaton Corp",
         amount: 20955.6,
@@ -130,9 +140,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":4,"y":1,"w":1,"h":1,"i":"11", static: false
       },
       {
-        index: 11,
+        id: 12,
         name: "MM$",
         companyName: "Money Market",
         amount: 435964.40,
@@ -141,9 +152,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":5,"y":1,"w":1,"h":1,"i":"12", static: true
       },
       {
-        index: 12,
+        id: 13,
         name: "FB",
         companyName: "facebook",
         amount: 17414,
@@ -152,9 +164,10 @@ export const store = new Vuex.Store({
         to: false,
         selected: false,
         accepted: false,
+        "x":6,"y":1,"w":1,"h":1,"i":"13", static: false
       },
       {
-      index: 13,
+      id: 14,
         name: "FDX",
         companyName: "FedEx",
         amount: 58540,
@@ -163,10 +176,11 @@ export const store = new Vuex.Store({
         from: true,
         to: false,
         selected: false,
-        accepted: false
+        accepted: false,
+        "x":0,"y":2,"w":1,"h":1,"i":"14", static: false
 		},
 		{
-        index: 14,
+        id: 15,
         name: "HRL",
         companyName: "Hormel",
         amount: 18896,
@@ -175,10 +189,11 @@ export const store = new Vuex.Store({
         from: true,
         to: false,
         selected: false,
-        accepted: false
+        accepted: false,
+        "x":1,"y":2,"w":1,"h":1,"i":"15", static: false
 		},
 		{
-        index: 15,
+        id: 16,
         name: "INTC",
         companyName: "Intel",
         amount: 15297,
@@ -187,9 +202,10 @@ export const store = new Vuex.Store({
         from: true,
         to: false,
         selected: false,
-        accepted: false
+        accepted: false,
+        "x":2,"y":2,"w":1,"h":1,"i":"16", static: false
 		},{
-		index: 16,
+		id: 17,
         name: "ISRC",
         companyName: "Intutive Surgical Inc",
         amount: 15174.40,
@@ -198,8 +214,36 @@ export const store = new Vuex.Store({
         from: true,
         to: false,
         selected: false,
-        accepted: false
-		}
+        accepted: false,
+        
+        "x":3,"y":2,"w":1,"h":1,"i":"17", static: false
+    },
+    {
+      id: 18,
+      name: "EA",
+      companyName: "Bank New York Mellon",
+      amount: 8024,
+      amountParcent: 1.01,
+      from: true,
+      to: false,
+      selected: false,
+      accepted: false,
+      "x":4,"y":2,"w":1,"h":1,"i":"18", static: false
+    },
+    {
+      id: 19,
+          name: "Add Instrument",
+          // companyName: "Intutive Surgical Inc",
+          // amount: 15174.40,
+          // amountParcent: 1.13,
+          // fixed: false,
+          // from: true,
+          // to: false,
+          // selected: false,
+          // accepted: false,
+          isAdd: true,
+          "x":5,"y":2,"w":1,"h":1,"i":"18", static: true
+      }
       
     ],
     selectedItems: {
@@ -214,6 +258,35 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
+    updatedItems: (state) => {
+      const totalCol = 6;
+            // const totalRows = layout1.length / totalCol;
+            let rowNo = 0;
+            let colNo  = 0;
+            const updaedItemList = [];
+                
+
+            state.itemList.map((el, index) => {
+                let data = null;
+                if(colNo < totalCol){
+//                     colNo = index;
+                    data = {...el, "x":colNo,"y":rowNo,"w":1,"h":1,"i":"1", static: false}
+                    updaedItemList.push(data);
+                    colNo++;
+
+                }else{
+                    colNo = 0
+                    rowNo++
+                    data = {...el, "x":colNo,"y":rowNo,"w":1,"h":1,"i":"1", static: false}
+                    updaedItemList.push(data);
+                    colNo++;
+                }
+
+                console.log(updaedItemList[index]);
+            })
+            return updaedItemList;
+
+    },
     diffPercentAmount: (state) => {
       if (state.selectItems) {
         const diffAmount =
@@ -235,9 +308,13 @@ export const store = new Vuex.Store({
           return "cardselected"
       }else if(item.accepted){ 
           return "cardaccepted";
+      }else if(item.isAdd){
+        return "addInstrument";
       }else{
-          return "normal";
+        return "normal";
       }
+          
+      
     },
   },
   mutations: {

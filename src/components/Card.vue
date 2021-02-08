@@ -4,7 +4,7 @@
     outlined
     elevation="10"
     v-on:click="selectItem(index)"
-    :style="item.fixed ? 'background:green' : ''"
+    :style="item.fixed ? 'background:green' : item.isAdd ? 'background:blue' : ''"
   >
     <v-list-item three-line>
       <v-list-item-content>
@@ -14,14 +14,14 @@
         <v-list-item-subtitle :style="item.selected ? 'color:white' : ''">
           {{ item.companyName }}</v-list-item-subtitle
         >
-        <v-list-item-title class="amount">
+        <v-list-item-title v-if="item.amount" class="amount">
           ${{ item.amount }}
         </v-list-item-title>
       </v-list-item-content>
 
       
       <v-avatar
-        v-if="item.fixed !== true"
+        v-if="item.fixed !== true && item.isAdd !== true"
         color="primary"
         size="30"
         class="avtar"
@@ -36,9 +36,9 @@
         text
         :style="item.selected ? 'background:blue' : ''"
       >
-        {{ item.from ? "From" : "To" }}
+        {{ item.from ? "From" : item.isAdd ? "+" : "To" }}
       </v-btn>
-      <v-btn elevation="2" fab small>X</v-btn>
+      <v-btn  v-if="item.isAdd !== true" elevation="2" fab small>X</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -97,6 +97,9 @@ export default {
 
 .v-card .cardaccepted {
   background: darkgoldenrod;
+}
+.v-card .addInstrument {
+   background: green;
 }
 .v-sheet .v-card {
   border-radius: 30px;

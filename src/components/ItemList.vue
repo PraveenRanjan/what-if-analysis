@@ -4,7 +4,7 @@
       <Header />
     </v-card-title>
     <v-container class="stockCards">
-      <v-item-group v-model="selected" multiple>
+      <!-- <v-item-group v-model="selected" multiple>
         <v-row>
           <v-col v-for="(item, i) in itemList" :key="i" cols="12" md="2">
             <StockCard :item="item" :index="i" />
@@ -12,29 +12,30 @@
           <v-card class="card" outlined elevation="10" style="background: blue">
             <v-list-item three-line>
               <v-list-item-content>
-                <div class="cardHeader" >
-          <span>Add Instrument</span>
-        </div>
+                <div class="cardHeader">
+                  <span>Add Instrument</span>
+                </div>
 
-                <v-list-item-title class="amount"> 
-                     
-                </v-list-item-title>
+                <v-list-item-title class="amount"> </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-      <v-btn style="background:blue; font-size:22px;" elevation="2" fab small>+</v-btn>
-    </v-card-actions>
+              <v-btn
+                style="background: blue; font-size: 22px"
+                elevation="2"
+                fab
+                small
+                >+</v-btn
+              >
+            </v-card-actions>
           </v-card>
         </v-row>
-      </v-item-group>
+      </v-item-group> -->
+      <DnDGrid />
     </v-container>
     <v-card-actions>
       <div class="text-center">
-        <v-pagination
-          v-model="page"
-          :length="4"
-          circle
-        ></v-pagination>
+        <v-pagination v-model="page" :length="4" circle></v-pagination>
       </div>
     </v-card-actions>
   </v-card>
@@ -43,8 +44,9 @@
 <script>
 import { mapActions } from "vuex";
 import { mapGetters } from "vuex";
-import StockCard from "./Card.vue";
+// import StockCard from "./Card.vue";
 import Header from "./Header.vue";
+import DnDGrid from "./DnD.vue";
 
 export default {
   data: () => ({
@@ -52,8 +54,9 @@ export default {
     page: 1,
   }),
   components: {
-    StockCard,
+    // StockCard,
     Header,
+    DnDGrid,
   },
   computed: {
     itemList() {
@@ -76,34 +79,31 @@ export default {
 
 
 <style scoped>
-
 .stockCards {
-    height: 79vh;
-    overflow: auto;
+  height: 79vh;
+  overflow: auto;
 }
 
 .card {
-    width: 11em;
-    height: 11em;    
-    border: solid 2px rgba(0, 0, 0, 0.12);
-    box-shadow: 3px 3px 7px 3px #8888884a;
-    border-radius: 30px;
+  width: 11em;
+  height: 11em;
+  border: solid 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 3px 3px 7px 3px #8888884a;
+  border-radius: 30px;
 }
 
 .cardHeader {
-    align-content: space-between;
-    font-weight: bold;
- font-size: 20px;
- 
+  align-content: space-between;
+  font-weight: bold;
+  font-size: 20px;
 }
-
 
 .v-pagination__item--active {
   background: blue;
   color: red;
 }
 .v-pagination__item .v-pagination__item--active .primary {
-    background: blue;
+  background: blue;
 }
 
 .v-pagination__item--active {

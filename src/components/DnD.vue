@@ -1,21 +1,22 @@
 <template>
-    <grid-layout :layout.sync="layout"
+    <GridLayout :layout.sync="itemList"
                  :col-num=6
-                 :row-height=260
+                 :row-height=200
                  :maxRows=3
                  :is-draggable=true
                  :is-resizable=false
                  :vertical-compact=false
                  :use-css-transforms=true
     >
-        <grid-item v-for="(item, idx) in layout" v-bind:key="item.i"
-                   :static=false
+        <GridItem v-for="(item, idx) in itemList" v-bind:key="item.id"
+                   :static="item.static"
                    :x="item.x"
                    :y="item.y"
                    :w=1
                    :h=1
-                   :i="item.i"
+                   :i="item.id"
         >
+        <!-- {{item}} -->
         <!-- <div v-on:click="selectItem(idx)">
                             <v-row class="label">
                                 <div><p style="font-weight: bold; font-size: 25px; padding-left: 12px;">{{linkname.name}}</p></div>
@@ -32,10 +33,12 @@
                                 
                             </v-row>
                             </div> -->
-           {{idx}}
+          
   <StockCard :item="item" :index="idx"/>
-        </grid-item>
-    </grid-layout>
+        </GridItem>
+        
+    </GridLayout>
+    
 </template>
 
 <script>
@@ -44,57 +47,16 @@ import {mapGetters} from 'vuex';
 
 import { GridLayout, GridItem } from "vue-grid-layout"
 import StockCard from './Card.vue'
+// import AddCard from './AddCard.vue'
 export default {
     components: {
         GridLayout,
         GridItem,
-        StockCard
+        StockCard,
+        // AddCard
     },
     data() {
         return {
-            layout: [
-
-                {"x":0,"y":0,"w":1,"h":1,"i":"1", static: false},
-                {"x":1,"y":0,"w":1,"h":1,"i":"2", static: false},
-                {"x":2,"y":0,"w":1,"h":1,"i":"3", static: false},
-                {"x":3,"y":0,"w":1,"h":1,"i":"4", static: false},
-                {"x":4,"y":0,"w":1,"h":1,"i":"5", static: false},
-                {"x":5,"y":0,"w":1,"h":1,"i":"6", static: false},
-                {"x":0,"y":1,"w":1,"h":1,"i":"7", static: false},
-                {"x":1,"y":1,"w":1,"h":1,"i":"8", static: false},
-                {"x":2,"y":1,"w":1,"h":1,"i":"9", static: false},
-                {"x":3,"y":1,"w":1,"h":1,"i":"10", static: false},
-                {"x":4,"y":1,"w":1,"h":1,"i":"11", static: false},
-                {"x":5,"y":1,"w":1,"h":1,"i":"12", static: false},
-                {"x":0,"y":2,"w":1,"h":1,"i":"13", static: false},
-                {"x":1,"y":2,"w":1,"h":1,"i":"14", static: false},
-                {"x":2,"y":2,"w":1,"h":1,"i":"15", static: false},
-                {"x":3,"y":2,"w":1,"h":1,"i":"16", static: false},
-                {"x":4,"y":2,"w":1,"h":1,"i":"17", static: false},
-                // {"x":5,"y":2,"w":1,"h":1,"i":"18", static: false},
-                
-
-                // {"x":0,"y":0,"w":2,"h":2,"i":"0", static: false},
-                // {"x":2,"y":0,"w":2,"h":4,"i":"1", static: true},
-                // {"x":4,"y":0,"w":2,"h":5,"i":"2", static: false},
-                // {"x":6,"y":0,"w":2,"h":3,"i":"3", static: false},
-                // {"x":8,"y":0,"w":2,"h":3,"i":"4", static: false},
-                // {"x":10,"y":0,"w":2,"h":3,"i":"5", static: false},
-                // {"x":0,"y":5,"w":2,"h":5,"i":"6", static: false},
-                // {"x":2,"y":5,"w":2,"h":5,"i":"7", static: false},
-                // {"x":4,"y":5,"w":2,"h":5,"i":"8", static: false},
-                // {"x":6,"y":3,"w":2,"h":4,"i":"9", static: true},
-                // {"x":8,"y":4,"w":2,"h":4,"i":"10", static: false},
-                // {"x":10,"y":4,"w":2,"h":4,"i":"11", static: false},
-                // {"x":0,"y":10,"w":2,"h":5,"i":"12", static: false},
-                // {"x":2,"y":10,"w":2,"h":5,"i":"13", static: false},
-                // {"x":4,"y":8,"w":2,"h":4,"i":"14", static: false},
-                // {"x":6,"y":8,"w":2,"h":4,"i":"15", static: false},
-                // {"x":8,"y":10,"w":2,"h":5,"i":"16", static: false},
-                // {"x":10,"y":4,"w":2,"h":2,"i":"17", static: false},
-                // {"x":0,"y":9,"w":2,"h":3,"i":"18", static: false},
-                // {"x":2,"y":6,"w":2,"h":2,"i":"19", static: false}
-            ],
             draggable: true,
             resizable: false,
             index: 0
@@ -105,6 +67,7 @@ export default {
             return this.$store.state.itemList
           
         },
+        
         selectedItems(){
              return this.$store.state.selectedItems
         },
@@ -181,7 +144,7 @@ export default {
 
 <style scoped>
 .vue-grid-layout {
-    background: #eee;
+    /* background: #eee; */
 }
 .vue-grid-item:not(.vue-grid-placeholder) {
     /* background: #ccc; */
@@ -191,7 +154,7 @@ export default {
     opacity: 0.9;
 }
 .vue-grid-item .static {
-    background: #cce;
+    /* background: #cce; */
 }
 .vue-grid-item .text {
     font-size: 24px;
